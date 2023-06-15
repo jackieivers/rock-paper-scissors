@@ -1,7 +1,28 @@
-let computerScore = 0;
+const buttons = document.querySelectorAll(".btn");
+const output = document.querySelector("#output");
+
+let player = document.querySelector("#player");
 let playerScore = 0;
 
-function getComputerChoice() {
+let computer = document.querySelector("#computer");
+let compScore = 0;
+
+let whoWon = document.querySelector("#whoWon");
+
+const resetButton = document.querySelector("#resetButton");
+const playTo = document.querySelector("#playTo");
+
+let winningScore = 1;
+
+for (let button of buttons) {
+    button.addEventListener('click', () => {
+        playerSelection = button.id;
+        computerSelection = computerPlay();
+        playGame();
+    });
+};
+
+function computerPlay() {
     let choice = Math.random() * 3;
     if (choice <= 1) {
         return "rock"
@@ -12,26 +33,57 @@ function getComputerChoice() {
     }
 }
 
-function rps(playerSelection, computerSelection) {
-    computerSelection = getComputerChoice();
-    playerSelection = prompt("RPS!").toLowerCase();
+function playRound() {
     if (computerSelection === playerSelection) {
-        console.log(`Computer: ${computerScore}, Player: ${playerScore}`);
-        return `It's a tie! You both chose ${computerSelection}`;
+        output.textContent = `It's a tie! You both chose ${computerSelection}`;
     } else if ((computerSelection === "rock" && playerSelection === "scissors")
         || (computerSelection === "paper" && playerSelection === "rock")
         || (computerSelection === "scissors" && playerSelection === "paper")) {
-        computerScore = ++computerScore
-        console.log(`Computer: ${computerScore}, Player: ${playerScore}`);
-        return `You lose! ${computerSelection} beats ${playerSelection}`;
+        compScore += 1;
+        output.textContent = `You lose! ${computerSelection} beats ${playerSelection}`;
     } else if ((computerSelection === "rock" && playerSelection === "paper")
         || (computerSelection === "paper" && playerSelection === "scissors")
         || (computerSelection === "scissors" && playerSelection === "rock")) {
-        playerScore = ++playerScore
-        console.log(`Computer: ${computerScore}, Player: ${playerScore}`);
-        return `You win! ${playerSelection} beats ${computerSelection}`;
-    } else {
-        console.log(`Computer: ${computerScore}, Player: ${playerScore}`);
-        return `Try again. Your entry, "${playerSelection}", was invalid. Please choose rock, paper, or scissors`;
+        playerScore += 1;
+        output.textContent = `You win! ${playerSelection} beats ${computerSelection}`;
     }
+}
+
+function playGame() {
+    playRound()
+    player.textContent = playerScore;
+    computer.textContent = compScore;
+    if (playerScore === winningScore) {
+        whoWon.textContent = "Congrats, you win!";
+        whoWon.classList.add("winner");
+        buttons.forEach(elem => {
+            elem.disabled = true;
+        })
+    } else if (compScore === winningScore) {
+        whoWon.textContent = "You lost! This time...";
+        whoWon.classList.add("loser");
+        buttons.forEach(elem => {
+            elem.disabled = true;
+        })
+    }
+}
+
+playTo.addEventListener('change', function () {
+    winningScore = parseInt(playTo.value)
+    reset();
+});
+
+resetButton.addEventListener('click', reset);
+
+function reset() {
+    playerScore = 0;
+    player.textContent = playerScore;
+    compScore = 0;
+    computer.textContent = compScore;
+    output.textContent = "Choose Your Weapon...";
+    whoWon.textContent = "";
+    whoWon.classList.remove('winner', 'loser');
+    buttons.forEach(elem => {
+        elem.disabled = false;
+    });
 }

@@ -4,12 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>RPS vs The Machine</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <script src="rps.js"></script>
+    <h1>Rock Paper Scissors!</h1>
+    <div><label>Best of...<select id="playTo">
+                <option value="1">1</option>
+                <option value="3">3</option>
+                <option value="5">5</option>
+                <option value="7">7</option>
+            </select></label></div>
+    <h2 id="output">Choose Your Weapon...</h2>
+    <div><button class="btn" id="rock">
+            <img src="images/rock.png">
+        </button>
+        <button class="btn" id="paper">
+            <img src="images/paper.png">
+        </button>
+        <button class="btn" id="scissors">
+            <img src="images/scissors.png">
+        </button>
+    </div>
+    <h2 id="whoWon"></h2>
+    <h3>Computer: <span id="computer">0</span> Player: <span id="player">0</span></h2>
+
+        <button id="resetButton">Reset</button>
+
+
+        <script src="rps.js"></script>
 </body>
 
 </html>

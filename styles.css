@@ -1,0 +1,33 @@
+.btn img {
+    width: 100px;
+    height: 100px;
+}
+
+body {
+    text-align: center;
+    margin: 50px;
+}
+
+.winner {
+    color: green;
+}
+
+.loser {
+    color: red;
+}
+
+.btn {
+    padding: 30px;
+    border-radius: 50%;
+    background-color: rgb(221, 217, 217);
+    margin: 10px;
+}
+
+.btn:hover {
+    border: 2px solid red;
+}
+
+#resetButton {
+    padding: 10px;
+    border-radius: 15%;
+}
