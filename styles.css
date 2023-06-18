@@ -1,11 +1,12 @@
 .btn img {
-    width: 100px;
-    height: 100px;
+    width: 125px;
+    height: 125px;
 }
 
 body {
     text-align: center;
-    margin: 50px;
+    margin: 30px;
+    font-family: "Press Start 2P", sans-serif;
 }
 
 .winner {
@@ -17,17 +18,45 @@ body {
 }
 
 .btn {
-    padding: 30px;
+    padding: 20px;
+    border: none;
+    background-color: white;
     border-radius: 50%;
-    background-color: rgb(221, 217, 217);
-    margin: 10px;
+    transition: 500ms;
 }
 
 .btn:hover {
-    border: 2px solid red;
+    background-color: rgb(243, 208, 208);
+}
+
+.btn:disabled {
+    background-color: white;
 }
 
 #resetButton {
     padding: 10px;
     border-radius: 15%;
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+#subtitle {
+    font-family: "Odibee Sans";
+    font-size: 1.8rem;
+    line-height: 0.2rem;
+}
+
+label {
+    font-family: "Odibee Sans";
+    line-height: 3rem;
+    font-size: 1.4rem;
+}
+
+select {
+    font-size: 1.2rem;
+}
+
+#playByPlay {
+    font-family: "Odibee Sans";
+    font-size: 1.8rem;
 }

@@ -6,17 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RPS vs The Machine</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <h1>Rock Paper Scissors!</h1>
-    <div><label>Best of...<select id="playTo">
+    <h1>Rock Paper Scissors</h1>
+    <p id="subtitle">Can you beat the computer?</p>
+    <div><label>Best of... <select id="playTo">
                 <option value="1">1</option>
-                <option value="3">3</option>
-                <option value="5">5</option>
-                <option value="7">7</option>
+                <option value="2">3</option>
+                <option value="3">5</option>
+                <option value="4">7</option>
             </select></label></div>
-    <h2 id="output">Choose Your Weapon...</h2>
+    <h3 id="output">Choose Your Weapon!</h3>
     <div><button class="btn" id="rock">
             <img src="images/rock.png">
         </button>
@@ -27,13 +32,19 @@
             <img src="images/scissors.png">
         </button>
     </div>
-    <h2 id="whoWon"></h2>
-    <h3>Computer: <span id="computer">0</span> Player: <span id="player">0</span></h2>
 
-        <button id="resetButton">Reset</button>
+    <h4>Player: <span id="player">0</span> | Computer: <span id="computer">0</span></h4>
+    <div id="container">
+        <p>
+            <img id="playImg" src""> <img id="compImg" src"">
+        </p>
+        <h2 id="playByPlay"></h2>
+    </div>
+
+    <button id="resetButton">RESET</button>
 
 
-        <script src="rps.js"></script>
+    <script src="rps.js"></script>
 </body>
 
 </html>
